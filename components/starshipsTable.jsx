@@ -1,9 +1,29 @@
-import Image from "next/image"
+"use client";
+
+import { useEffect, useState } from "react";
+import Image from "next/image";
+
 export default function StarshipsTable() {
+
+    const [starships, setStarships] = useState([]);
+
+    useEffect(() => {
+      async function fetchStarships() {
+        try {
+          const res = await fetch("https://swapi.dev/api/starships/");
+          const data = await res.json();
+          setStarships(data.results.slice(0, 7))
+        } catch (error) {
+          console.error("Error fetching starships:", error);
+        }
+      }
+      fetchStarships();
+    }, []);
+
     return(
         <div className="pt-10 px-5">
-            <h1 className="text-gray-400">Starships</h1>
-            <table className="border-collapse border border-gray-200 text-gray-400 w-full">
+            <h1 className="text-gray-400 pb-2">Starships</h1>
+            <table className="border-collapse border border-gray-200 text-gray-400 w-full text-xs">
                 <thead>
                     <tr>
                         <th className=""><Image src="/tableSquare.svg" width={15} height={15} alt="square" className="ml-5"/></th>
@@ -16,29 +36,35 @@ export default function StarshipsTable() {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>
-
+                    {starships.map((ship, idx) => (
+                      <tr key={idx} className="border-t border-gray-200">
+                        <td className="pl-5">
+                          <input type="checkbox" />
                         </td>
-                        <td> 
-
+                        <td className="py-4">{ship.name}</td>
+                        <td className="py-4">{ship.model}</td>
+                        <td className="py-4">{ship.starship_class}</td>
+                        <td className="py-4">{ship.passengers}</td>
+                        <td className="py-4">{ship.length} m</td>
+                        <td className="py-4">
+                          {ship.pilots.length > 0 ? (
+                            ship.pilots.slice(0, 2).map((url, i) => (
+                              <a
+                                key={i}
+                                href={url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-blue-500 underline mr-2"
+                              >
+                                Pilot {i + 1}
+                              </a>
+                            ))
+                          ) : (
+                            "None"
+                          )}
                         </td>
-                        <td> 
-
-                        </td>
-                        <td> 
-
-                        </td>
-                        <td>
-
-                        </td>
-                        <td>
-
-                        </td>
-                        <td> 
-
-                        </td>
-                    </tr>
+                      </tr>
+                    ))}
                 </tbody>
             </table>
         </div>

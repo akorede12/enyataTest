@@ -1,44 +1,53 @@
+"use client"
 import Image from "next/image"
+import { useEffect, useState } from "react";
+
 export default function PeopleTable() {
+
+    const [people, setPeople] = useState([]);
+
+    useEffect(() => {
+      async function fetchPeople() {
+        try {
+          const res = await fetch("https://swapi.dev/api/people/");
+          const data = await res.json();
+          setPeople(data.results.slice(0, 7));
+        } catch (error) {
+          console.error("Error fetching people:", error);
+        }
+      }
+      fetchPeople();
+    }, []);
+  
     return(
-        <div className="pt-10 px-5">
-            <h1 className="text-gray-400">People</h1>
-            <table className="border-collapse border border-gray-200 text-gray-400 w-full">
+        <div className="pt-5 px-5">
+            <h1 className="text-gray-400 pb-2">People</h1>
+            <table className="border-collapse border border-gray-200 text-gray-400 w-full text-xs">
                 <thead>
                     <tr>
                         <th className=""><Image src="/tableSquare.svg" width={15} height={15} alt="square" className="ml-5"/></th>
-                        <th className="">Name</th>
-                        <th className="">Birth year</th>
-                        <th className="">Gender</th>
-                        <th className="">Hair color</th>
-                        <th className="">Height</th>
-                        <th className=" p-3">Created</th>
+                        <th className="text-left">Name</th>
+                        <th className="text-left">Birth year</th>
+                        <th className="text-left">Gender</th>
+                        <th className="text-left">Hair color</th>
+                        <th className="text-left">Height</th>
+                        <th className="text-left p-3">Created</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>
-
+                    {people.map((person, idx) => (
+                      <tr key={idx} className="border-t border-gray-100">
+                        <td className="pl-5">
+                          <input type="checkbox" />
                         </td>
-                        <td> 
-
-                        </td>
-                        <td> 
-
-                        </td>
-                        <td> 
-
-                        </td>
-                        <td>
-
-                        </td>
-                        <td>
-
-                        </td>
-                        <td> 
-
-                        </td>
-                    </tr>
+                        <td className="py-4">{person.name}</td>
+                        <td className="py-4">{person.birth_year}</td>
+                        <td className="py-4">{person.gender}</td>
+                        <td className="py-4">{person.hair_color}</td>
+                        <td className="py-4">{person.height} cm</td>
+                        <td className="py-4">{new Date(person.created).toLocaleDateString()}</td>
+                      </tr>
+                    ))}
                 </tbody>
             </table>
         </div>
