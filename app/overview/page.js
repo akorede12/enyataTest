@@ -14,7 +14,7 @@ export default function Overview() {
          </div>
          <div className="w-4/5">
          <div id="topBar"><TopBar/></div>
-         <div id="grid" className="flex mx-5 space-x-5 py-5">
+         <div id="grid" className="flex mx-5 space-x-5 pt-2">
           <FilmGridBox/>
           <StarGridBox/>
           <PeopleGridBox/>

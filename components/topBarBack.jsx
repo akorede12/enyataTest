@@ -2,7 +2,7 @@ import Image from "next/image"
 import Link from "next/link"
 export default function TopBarBack() {
     return(
-        <div className="w-full shadow-sm flex py-5 justify-between">
+        <div className="w-full shadow-sm flex py-2 justify-between">
             <div className="justify-start flex">
                 <Image src="/back.svg"
                 className="ml-10 mr-5"
@@ -33,6 +33,14 @@ export default function TopBarBack() {
             </div>
             <div className="mr-10">
                 John Doe
+            </div>
+            <div>
+                <Image src="/menu.svg"
+                className="pt-2 mr-5"
+                alt="logo"
+                width={24}
+                height={24}
+                /> 
             </div>
             </div>
         </div>

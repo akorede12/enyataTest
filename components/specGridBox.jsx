@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function SpecGridBox() {
     return(
-        <div className="shadow-md p-5">
+        <div className="shadow-md p-2">
             <div className="flex gap-x-20">
             <div id="header" className="">Species</div>
             <div>
@@ -14,10 +14,10 @@ export default function SpecGridBox() {
             />
             </div>
             </div>
-            <div className="pt-10">
+            <div className="pt-5">
                 200
             </div>
-            <div className="pt-2 text-sm text-green-500">
+            <div className="pt-1 text-sm text-green-500">
                 20 more than yestesday
             </div>
         </div>

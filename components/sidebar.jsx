@@ -30,6 +30,7 @@ export default function Sidebar() {
         </Link>
         </div>
 
+        <div className="py-10">
         <div className={`hover:bg-sky-700 ${isActive("/starships") ? "bg-sky-700" : ""}`}>
         <Link href="/starships">
         <div className="py-5 flex">
@@ -71,7 +72,7 @@ export default function Sidebar() {
         </div>
         </Link>
         </div>
-
+        </div>
 
         </div>    
         </div>
