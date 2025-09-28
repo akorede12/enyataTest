@@ -1,31 +1,27 @@
 import Image from "next/image";
-import Sidebar from "@/components/sidebar";
-import FilmGridBox from "@/components/filmGridBox";
-import SpecGridBox from "@/components/specGridBox";
-import StarGridBox from "@/components/starshipGridBox";
-import PeopleGridBox from "@/components/peopleGridBox";
-import TopBar from "@/components/topBar";
-import OverviewTable from "@/components/overviewTable";
-import TopBarBack from "@/components/topBarBack";
+import LoginForm from "@/components/loginForm";
 
 export default function Home() {
   return (
-      <div className="flex">
-         <div className="w-1/5">
-         <Sidebar/>
-         </div>
-         <div className="w-4/5">
-         <div id="topBar"><TopBar/></div>
-         <div id="grid" className="flex mx-5 space-x-5 py-5">
-          <FilmGridBox/>
-          <StarGridBox/>
-          <PeopleGridBox/>
-          <SpecGridBox/>
-         </div>
-         <div id="table">
-          <OverviewTable/>
-         </div>
-         </div> 
-      </div>  
+    <div className="w-full h-screen flex">
+      <div 
+        id="leftDiv"
+        className="bg-[#031434] w-1/3 flex items-center justify-center"
+      >
+        <div>
+          <Image src="/swLogo.svg"
+            className="mx-auto"
+            alt="logo"
+            width={300}
+            height={130}
+          />
+        </div>
+      </div>
+      <div id="rightDiv" className="w-2/3 flex items-center justify-center">
+        <div className="w-1/2 border rounded shadow-lg">
+          <LoginForm/>
+        </div>
+      </div>
+    </div>
   );
 }

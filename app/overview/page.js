@@ -6,9 +6,8 @@ import StarGridBox from "@/components/starshipGridBox";
 import PeopleGridBox from "@/components/peopleGridBox";
 import TopBar from "@/components/topBar";
 import OverviewTable from "@/components/overviewTable";
-// import TopBarBack from "@/components/topBarBack";
 
-export default function OverviewSection() {
+export default function Overview() {
   return (
       <div className="flex">
          <div className="w-1/5">

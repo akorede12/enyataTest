@@ -1,6 +1,6 @@
 import Sidebar from "@/components/sidebar";
 import TopBar from "@/components/topBar";
-import PeopleTable from "./peopleTable";
+import PeopleTable from "@/components/peopleTable";
 
 export default function PeopleSection() {
     return(

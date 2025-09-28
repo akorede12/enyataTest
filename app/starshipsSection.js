@@ -1,4 +1,4 @@
-import StarshipsTable from "./starshipsTable";
+import StarshipsTable from "@/components/starshipsTable";
 import Sidebar from "@/components/sidebar";
 import TopBar from "@/components/topBar";
 

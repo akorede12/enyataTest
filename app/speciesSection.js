@@ -1,6 +1,6 @@
 import Sidebar from "@/components/sidebar";
 import TopBar from "@/components/topBar";
-import SpeciesTable from "../components/speciesTable";
+import SpeciesTable from "@/components/speciesTable";
 
 export default function SpeciesSection() {
     return(
