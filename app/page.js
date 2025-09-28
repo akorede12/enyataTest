@@ -15,7 +15,7 @@ export default function Home() {
          <Sidebar/>
          </div>
          <div className="w-4/5">
-         <div id="topBar"><TopBar/> <TopBarBack/></div>
+         <div id="topBar"><TopBar/></div>
          <div id="grid" className="flex mx-5 space-x-5 py-5">
           <FilmGridBox/>
           <StarGridBox/>
