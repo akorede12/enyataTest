@@ -1,8 +1,6 @@
 import "./globals.css";
 
-// Import all main page components
 import Home from "./page";
-// import Login from "./login";
 import OverviewSection from "./overview/page";
 import PeopleSection from "./people/page";
 import SpeciesSection from "./species/page";

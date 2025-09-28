@@ -79,7 +79,6 @@ export default function LoginForm() {
         setIsSubmitting(true);
         
         try {    
-            // Redirect to overview section after successful login
             router.push('/overview');
             
         } catch (error) {
