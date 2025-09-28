@@ -1,6 +1,14 @@
+"use client";
 import Image from "next/image"
-import Link from "next/link"
+import { useRouter } from "next/navigation";
+
 export default function TopBarBack() {
+    const router = useRouter();
+    
+    const handleBack = () => {
+        router.back();
+    };
+
     return(
         <div className="w-full shadow-sm flex py-2 justify-between">
             <div className="justify-start flex">
@@ -10,9 +18,12 @@ export default function TopBarBack() {
                 width={15}
                 height={15}
                 />
-                <Link href="#">
+                <button 
+                    onClick={handleBack}
+                    className="text-gray-500 hover:text-gray-700 cursor-pointer"
+                >
                 Back            
-                </Link>
+                </button>
             </div>
             <div className="justify-end flex">
             <div>

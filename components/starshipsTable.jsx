@@ -25,7 +25,7 @@ export default function StarshipsTable() {
         <div className="pt-10 px-5">
             <h1 className="text-gray-400 pb-2">Starships</h1>
             <table className="border-collapse border border-gray-200 text-gray-400 w-full text-xs">
-                <thead>
+                <thead className="text-left">
                     <tr>
                         <th className=""><Image src="/tableSquare.svg" width={15} height={15} alt="square" className="ml-5"/></th>
                         <th className="">Name</th>
@@ -44,10 +44,10 @@ export default function StarshipsTable() {
                           const query = new URLSearchParams({
                             name: ship.name,
                             model: ship.model,
-                            class: ship.class,
-                            passenger: ship.passenger,
+                            class: ship.starship_class,
+                            passenger: ship.passengers,
                             length: ship.length,
-                            character: ship.character,
+                            pilots: JSON.stringify(ship.pilots),
                             image: '/user.svg'
                           }).toString();
                           router.push(`/starships/detail?${query}`)}
