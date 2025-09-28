@@ -1,7 +1,8 @@
 import Sidebar from "@/components/sidebar";
 import TopBarBack from "@/components/topBarBack";
 
-export default function Species() {
+export default function Species({ details = {} }) {
+    const {name, classification, eye_colors, hair_colors, average_height, lifespan } = details;
     return(
         <div>
             <div className="flex">

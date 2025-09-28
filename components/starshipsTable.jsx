@@ -40,7 +40,18 @@ export default function StarshipsTable() {
                     {starships.map((ship, idx) => (
                       <tr key={idx} 
                         className="cursor-pointer hover:bg-gray-50"
-                        onClick={() => router.push('/starships/detail')}
+                        onClick={() => {
+                          const query = new URLSearchParams({
+                            name: ship.name,
+                            model: ship.model,
+                            class: ship.class,
+                            passenger: ship.passenger,
+                            length: ship.length,
+                            character: ship.character,
+                            image: '/user.svg'
+                          }).toString();
+                          router.push(`/starships/detail?${query}`)}
+                        }
                       >
                         <td className="pl-5">
                           <input type="checkbox" />

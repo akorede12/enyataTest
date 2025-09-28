@@ -40,7 +40,18 @@ export default function SpeciesTable() {
                     {species.map((sp, idx) => (
                       <tr key={idx}
                         className="cursor-pointer hover:bg-gray-50"
-                        onClick={() => router.push('/species/detail')}
+                        onClick={() => {
+                          const query = new URLSearchParams({
+                          name: sp.name,
+                          classification: sp.classification,
+                          eye_colors: sp.eye_colors || '',
+                          hair_colors: sp.hair_colors || '',
+                          average_height: String(sp.average_height || ''),
+                          lifespan: sp.lifespan,
+                          image: '/user.svg'
+                          }).toString();
+                          router.push(`/species/detail?${query}`)}
+                        }
                       >
                         <td className="pl-5">
                           <input type="checkbox" />
