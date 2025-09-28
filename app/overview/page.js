@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Sidebar from "@/components/sidebar";
 import FilmGridBox from "@/components/filmGridBox";
 import SpecGridBox from "@/components/specGridBox";
