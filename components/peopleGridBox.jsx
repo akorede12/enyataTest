@@ -6,7 +6,7 @@ export default function PeopleGridBox() {
             <div className="flex gap-x-20">
             <div id="header" className="font-bold">People</div>
             <div>
-            <Image src="/pink.svg"
+            <Image src="/pink2.svg"
             className="ml-5"
             alt="gridBox"
             width={20}

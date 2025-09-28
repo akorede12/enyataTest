@@ -48,7 +48,7 @@ export default function Sidebar() {
         <div className={` rounded hover:bg-sky-300 ${isActive("/people") ? "bg-sky-700" : ""}`}>        
         <Link href="/people">
         <div className="py-3 flex">
-        <Image src="/pink.svg"
+        <Image src="/pink2.svg"
         className="ml-10 mr-5"
         alt="logo"
         width={24}
