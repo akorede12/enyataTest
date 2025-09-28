@@ -1,9 +1,11 @@
 "use client"
 import Image from "next/image"
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 
 
 export default function OverviewTable() {
+  const router = useRouter();
   const [films, setFilms] = useState([]);
 
   useEffect(() => {
@@ -31,7 +33,20 @@ export default function OverviewTable() {
                 </thead>
                 <tbody className="">
                     {films.map((film) => (
-                      <tr key={film.episode_id}>
+                      <tr
+                        key={film.episode_id}
+                        className="cursor-pointer hover:bg-gray-50"
+                        onClick={() => {
+                          const query = new URLSearchParams({
+                            title: film.title,
+                            director: film.director,
+                            producer: film.producer,
+                            release_date: film.release_date,
+                            image: "/img.png"
+                          }).toString();
+                          router.push(`/overview/detail?${query}`)
+                        }}
+                      >
                         <td className=""><Image src="/tableSquare.svg" width={15} height={15} alt="square" className="ml-5"/></td>
                         <td className="py-4">{film.title}</td>
                         <td className="py-4">{film.release_date}</td>

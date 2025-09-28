@@ -2,7 +2,10 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image"
+import { useRouter } from "next/navigation";
+
 export default function SpeciesTable() {
+    const router = useRouter();
     const [species, setSpecies] = useState([]);
 
     useEffect(() => {
@@ -35,7 +38,10 @@ export default function SpeciesTable() {
                 </thead>
                 <tbody>
                     {species.map((sp, idx) => (
-                      <tr key={idx} className="border-t border-gray-200">
+                      <tr key={idx}
+                        className="cursor-pointer hover:bg-gray-50"
+                        onClick={() => router.push('/species/detail')}
+                      >
                         <td className="pl-5">
                           <input type="checkbox" />
                         </td>

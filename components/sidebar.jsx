@@ -18,7 +18,7 @@ export default function Sidebar() {
 
         <div className={`hover:bg-sky-700 ${isActive("/overview") ? "bg-sky-700" : ""}`}>
         <Link href="/overview" >
-        <div className="py-5 text-left flex">
+        <div className="py-3 text-left flex">
         <Image src="/gridIcon.svg"
         className="ml-10 mr-5"
         alt="logo"
@@ -33,7 +33,7 @@ export default function Sidebar() {
         <div className="py-10">
         <div className={`hover:bg-sky-700 ${isActive("/starships") ? "bg-sky-700" : ""}`}>
         <Link href="/starships">
-        <div className="py-5 flex">
+        <div className="py-3 flex">
         <Image src="/blue.svg"
         className="ml-10 mr-5"
         alt="logo"
@@ -47,7 +47,7 @@ export default function Sidebar() {
 
         <div className={`hover:bg-sky-700 ${isActive("/people") ? "bg-sky-700" : ""}`}>        
         <Link href="/people">
-        <div className="py-5 flex">
+        <div className="py-3 flex">
         <Image src="/pink.svg"
         className="ml-10 mr-5"
         alt="logo"
@@ -61,7 +61,7 @@ export default function Sidebar() {
 
         <div className={`hover:bg-sky-700 ${isActive("/species") ? "bg-sky-700" : ""}`}>
         <Link href="/species">
-        <div className="py-5 flex">
+        <div className="py-3 flex">
         <Image src="/yellow.svg"
         className="ml-10 mr-5"
         alt="logo"

@@ -1,9 +1,11 @@
 "use client"
 import Image from "next/image"
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+
 
 export default function PeopleTable() {
-
+    const router = useRouter();
     const [people, setPeople] = useState([]);
 
     useEffect(() => {
@@ -36,7 +38,20 @@ export default function PeopleTable() {
                 </thead>
                 <tbody>
                     {people.map((person, idx) => (
-                      <tr key={idx} className="border-t border-gray-100">
+                      <tr key={idx} 
+                      className="cursor-pointer hover:bg-gray-50"
+                      onClick={() => {
+                        const query = new URLSearchParams({
+                          name: person.name,
+                          birth_year: person.birth_year,
+                          skin_color: person.skin_color || '',
+                          gender: person.gender || '',
+                          height: String(person.height || ''),
+                          image: '/user.svg'
+                        }).toString();
+                        router.push(`/people/detail?${query}`)
+                      }}
+                      >
                         <td className="pl-5">
                           <input type="checkbox" />
                         </td>

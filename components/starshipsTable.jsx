@@ -2,9 +2,10 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 export default function StarshipsTable() {
-
+    const router = useRouter();
     const [starships, setStarships] = useState([]);
 
     useEffect(() => {
@@ -37,7 +38,10 @@ export default function StarshipsTable() {
                 </thead>
                 <tbody>
                     {starships.map((ship, idx) => (
-                      <tr key={idx} className="border-t border-gray-200">
+                      <tr key={idx} 
+                        className="cursor-pointer hover:bg-gray-50"
+                        onClick={() => router.push('/starships/detail')}
+                      >
                         <td className="pl-5">
                           <input type="checkbox" />
                         </td>
