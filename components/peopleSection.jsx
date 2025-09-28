@@ -1,7 +1,8 @@
 import Sidebar from "@/components/sidebar";
-import TopBarBack from "@/components/topBarBack";
+import TopBar from "@/components/topBar";
+import PeopleTable from "./peopleTable";
 
-export default function Starships() {
+export default function PeopleSection() {
     return(
         <div>
             <div className="flex">
@@ -9,9 +10,9 @@ export default function Starships() {
                <Sidebar/>
                </div>
                <div className="w-4/5">
-               <div id="topBar"><TopBarBack/></div>
-               <div id="content">
-
+               <div id="topBar"><TopBar/></div>
+               <div id="table">
+                <PeopleTable/>
                </div>
                </div> 
             </div> 

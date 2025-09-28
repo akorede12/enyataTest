@@ -6,16 +6,16 @@ import StarGridBox from "@/components/starshipGridBox";
 import PeopleGridBox from "@/components/peopleGridBox";
 import TopBar from "@/components/topBar";
 import OverviewTable from "@/components/overviewTable";
-import TopBarBack from "@/components/topBarBack";
+// import TopBarBack from "@/components/topBarBack";
 
-export default function Home() {
+export default function OverviewSection() {
   return (
       <div className="flex">
          <div className="w-1/5">
          <Sidebar/>
          </div>
          <div className="w-4/5">
-         <div id="topBar"><TopBar/> <TopBarBack/></div>
+         <div id="topBar"><TopBar/></div>
          <div id="grid" className="flex mx-5 space-x-5 py-5">
           <FilmGridBox/>
           <StarGridBox/>

@@ -1,18 +1,18 @@
 import Image from "next/image"
-export default function OverviewTable() {
+export default function PeopleTable() {
     return(
         <div className="pt-10 px-5">
-            <h1 className="text-gray-400">Films</h1>
+            <h1 className="text-gray-400">People</h1>
             <table className="border-collapse border border-gray-200 text-gray-400 w-full">
                 <thead>
                     <tr>
                         <th className=""><Image src="/tableSquare.svg" width={15} height={15} alt="square" className="ml-5"/></th>
-                        <th className="">Film Title</th>
-                        <th className="">Release Date</th>
-                        <th className="">Director</th>
-                        <th className="">Producer</th>
-                        <th className="">Episode ID</th>
-                        <th className=" p-3">Character</th>
+                        <th className="">Name</th>
+                        <th className="">Birth year</th>
+                        <th className="">Gender</th>
+                        <th className="">Hair color</th>
+                        <th className="">Height</th>
+                        <th className=" p-3">Created</th>
                     </tr>
                 </thead>
                 <tbody>
