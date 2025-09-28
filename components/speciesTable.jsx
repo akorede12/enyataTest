@@ -33,13 +33,13 @@ export default function SpeciesTable() {
                         <th className="">Eye colors</th>
                         <th className="">Hair color</th>
                         <th className="">Height</th>
-                        <th className=" p-3">Created</th>
+                        <th className=" py-3">Created</th>
                     </tr>
                 </thead>
                 <tbody>
                     {species.map((sp, idx) => (
                       <tr key={idx}
-                        className="cursor-pointer hover:bg-gray-50"
+                        className="cursor-pointer hover:bg-gray-50 border-t-1 border-gray-100"
                         onClick={() => {
                           const query = new URLSearchParams({
                           name: sp.name,

@@ -19,7 +19,7 @@ export default function TopBar() {
                 /> 
             </div>
             <div className="mr-10">
-                John Doe
+                Aboaba Akorede
             </div>
             <div>
                 <Image src="/menu.svg"

@@ -16,7 +16,7 @@ export default function Sidebar() {
         />
         <div className="px-5 mx-auto">
 
-        <div className={`hover:bg-sky-700 ${isActive("/overview") ? "bg-sky-700" : ""}`}>
+        <div className={`rounded hover:bg-sky-300 ${isActive("/overview") ? "bg-sky-700" : ""}`}>
         <Link href="/overview" >
         <div className="py-3 text-left flex">
         <Image src="/gridIcon.svg"
@@ -31,7 +31,7 @@ export default function Sidebar() {
         </div>
 
         <div className="py-10">
-        <div className={`hover:bg-sky-700 ${isActive("/starships") ? "bg-sky-700" : ""}`}>
+        <div className={`rounded hover:bg-sky-300 ${isActive("/starships") ? "bg-sky-700" : ""}`}>
         <Link href="/starships">
         <div className="py-3 flex">
         <Image src="/blue.svg"
@@ -45,7 +45,7 @@ export default function Sidebar() {
         </Link>
         </div>
 
-        <div className={`hover:bg-sky-700 ${isActive("/people") ? "bg-sky-700" : ""}`}>        
+        <div className={` rounded hover:bg-sky-300 ${isActive("/people") ? "bg-sky-700" : ""}`}>        
         <Link href="/people">
         <div className="py-3 flex">
         <Image src="/pink.svg"
@@ -59,7 +59,7 @@ export default function Sidebar() {
         </Link>
         </div>
 
-        <div className={`hover:bg-sky-700 ${isActive("/species") ? "bg-sky-700" : ""}`}>
+        <div className={`rounded hover:bg-sky-300 ${isActive("/species") ? "bg-sky-700" : ""}`}>
         <Link href="/species">
         <div className="py-3 flex">
         <Image src="/yellow.svg"
@@ -73,7 +73,6 @@ export default function Sidebar() {
         </Link>
         </div>
         </div>
-
         </div>    
         </div>
   );

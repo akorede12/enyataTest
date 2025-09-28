@@ -10,7 +10,6 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        {/* Main application structure */}
         <div className="app-container">
           {children}
         </div>
@@ -19,11 +18,3 @@ export default function RootLayout({ children }) {
   );
 }
 
-export {
-  Home,
-  Login,
-  OverviewSection,
-  PeopleSection,
-  SpeciesSection,
-  StarshipsSection
-};

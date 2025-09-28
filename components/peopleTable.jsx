@@ -24,7 +24,7 @@ export default function PeopleTable() {
     return(
         <div className="pt-5 px-5">
             <h1 className="text-gray-400 pb-2">People</h1>
-            <table className="border-collapse border border-gray-200 text-gray-400 w-full text-xs">
+            <table className="border-collapse rounded-xs border border-gray-200 text-gray-400 w-full text-xs">
                 <thead>
                     <tr>
                         <th className=""><Image src="/tableSquare.svg" width={15} height={15} alt="square" className="ml-5"/></th>
@@ -33,13 +33,13 @@ export default function PeopleTable() {
                         <th className="text-left">Gender</th>
                         <th className="text-left">Hair color</th>
                         <th className="text-left">Height</th>
-                        <th className="text-left p-3">Created</th>
+                        <th className="text-left py-3">Created</th>
                     </tr>
                 </thead>
                 <tbody>
                     {people.map((person, idx) => (
                       <tr key={idx} 
-                      className="cursor-pointer hover:bg-gray-50"
+                      className="cursor-pointer hover:bg-gray-50 border-t-1 border-gray-100"
                       onClick={() => {
                         const query = new URLSearchParams({
                           name: person.name,

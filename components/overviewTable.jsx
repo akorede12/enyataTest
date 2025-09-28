@@ -7,12 +7,39 @@ import { useRouter } from "next/navigation";
 export default function OverviewTable() {
   const router = useRouter();
   const [films, setFilms] = useState([]);
+  const [characterNames, setCharacterNames] = useState({});
 
   useEffect(() => {
     async function fetchFilms() {
       const res = await fetch("https://swapi.dev/api/films/");
       const data = await res.json();
-      setFilms(data.results.slice(0, 7));
+      const filmsData = data.results.slice(0, 7);
+      setFilms(filmsData);
+      
+      // Fetch character names for all films
+      const allCharacterUrls = new Set();
+      filmsData.forEach(film => {
+        film.characters.slice(0, 2).forEach(url => allCharacterUrls.add(url));
+      });
+      
+      // Fetch character data
+      const characterPromises = Array.from(allCharacterUrls).map(async (url) => {
+        try {
+          const response = await fetch(url);
+          const character = await response.json();
+          return { url, name: character.name };
+        } catch (error) {
+          console.error('Error fetching character:', error);
+          return { url, name: 'Unknown' };
+        }
+      });
+      
+      const characters = await Promise.all(characterPromises);
+      const characterMap = {};
+      characters.forEach(char => {
+        characterMap[char.url] = char.name;
+      });
+      setCharacterNames(characterMap);
     }
     fetchFilms();
   }, []);
@@ -28,14 +55,14 @@ export default function OverviewTable() {
                         <th className="text-left">Director</th>
                         <th className="text-left">Producer</th>
                         <th className="text-left">Episode ID</th>
-                        <th className="text-left p-3">Character</th>
+                        <th className="text-left py-3">Character</th>
                     </tr>
                 </thead>
                 <tbody className="">
                     {films.map((film) => (
                       <tr
                         key={film.episode_id}
-                        className="cursor-pointer hover:bg-gray-50"
+                        className="cursor-pointer hover:bg-gray-50 border-t-1 border-gray-100"
                         onClick={() => {
                           const query = new URLSearchParams({
                             title: film.title,
@@ -54,16 +81,11 @@ export default function OverviewTable() {
                         <td className="py-4">{film.producer}</td>
                         <td className="py-4">{film.episode_id}</td>
                         <td className="py-4">
-                          {film.characters.slice(0, 2).map((char, i) => (
-                            <a
-                              key={i}
-                              href={char}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="text-blue-500 underline mr-2"
-                            >
-                              Link {i + 1}
-                            </a>
+                          {film.characters.slice(0, 2).map((charUrl, i) => (
+                            <span key={i} className="text-gray-600 mr-2">
+                              {characterNames[charUrl] || 'Loading...'}
+                              {i < film.characters.slice(0, 2).length - 1 && ', '}
+                            </span>
                           ))}
                         </td>
                       </tr>
